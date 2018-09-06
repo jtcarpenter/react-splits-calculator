@@ -23,8 +23,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 include: PATHS.app,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
+                    babelrc: false,
                     presets: ['@babel/env', '@babel/react']
                 }
             }
