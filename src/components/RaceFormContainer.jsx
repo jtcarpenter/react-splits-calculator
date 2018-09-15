@@ -1,63 +1,100 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import RaceForm from './RaceForm.jsx';
+import { updateRace } from '../actions/raceActions';
+import raceFormConfig from '../config/raceFormConfig';
 
 export class RaceFormContainer extends PureComponent {
 
     constructor(props) {
         super(props);
+        this.props = props;
         this.state = {
             hours: 0,
             minutes: 0,
             seconds: 0,
-            totalSeconds: 0,
-            race: 'marathon'
+            race: raceFormConfig.race.options.marathon
         };
-        this.handleHoursChange = this.handleHoursChange.bind(this);
-        this.handleMinutesChange = this.handleMinutesChange.bind(this);
-        this.handleSecondsChange = this.handleSecondsChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleRaceChange = this.handleRaceChange.bind(this);
-        this.getSplits = this.getSplits.bind(this);
+        this.raceUpdated = this.raceUpdated.bind(this);
     }
 
-    getSplits(race, time) {
-        let totalSeconds =  (this.state.hours * 3600) +
-                            (this.state.minutes * 60) +
-                            (this.state.seconds);
-        this.setState({ totalSeconds });
+    raceUpdated(time, race) {
+        let totalSeconds =  (time.hours * 3600) +
+                            (time.minutes * 60) +
+                            (time.seconds);
+        this.props.raceUpdated({
+            totalSeconds,
+            race
+        });
     }
 
-    handleHoursChange(evt) {
-        this.setState({ hours: parseInt(evt.target.value, 10) });
-    }
-
-    handleMinutesChange(evt) {
-        this.setState({ minutes: parseInt(evt.target.value, 10) });
-    }
-
-    handleSecondsChange(evt) {
-        this.setState({ seconds: parseInt(evt.target.value, 10) });
-    }
-
-    handleRaceChange(evt) {
-        this.setState({ race: evt.target.value });
+    handleChange(evt) {
+        let hours = evt.target.name === raceFormConfig.hours.name
+            ? parseInt(evt.target.value, 10)
+            : this.state.hours
+        let minutes = evt.target.name === raceFormConfig.minutes.name
+            ? parseInt(evt.target.value, 10)
+            : this.state.minutes
+        let seconds = evt.target.name === raceFormConfig.seconds.name
+            ? parseInt(evt.target.value, 10)
+            : this.state.seconds
+        let race = evt.target.name === raceFormConfig.race.name
+            ? evt.target.value
+            : this.state.race
+        this.setState({
+            hours,
+            minutes,
+            seconds,
+            race
+        });
+        this.raceUpdated(
+            {
+                hours,
+                minutes,
+                seconds
+            },
+            race
+        );
     }
 
     handleSubmit(evt) {
         evt.preventDefault();
-        this.getSplits();
+        let hours = evt.target.name === raceFormConfig.hours.name
+            ? parseInt(evt.target.hours.value, 10)
+            : this.state.hours
+        let minutes = evt.target.name === raceFormConfig.minutes.name
+            ? parseInt(evt.target.minutes.value, 10)
+            : this.state.minutes
+        let seconds = evt.target.name === raceFormConfig.seconds.name
+            ? parseInt(evt.target.seconds.value, 10)
+            : this.state.seconds
+        let race = evt.target.name === raceFormConfig.race.name
+            ? evt.target.race.value
+            : this.state.race
+        this.setState({
+            hours,
+            minutes,
+            seconds,
+            race
+        });
+        this.raceUpdated(
+            {
+                hours,
+                minutes,
+                seconds
+            },
+            race
+        );
     }
 
     render() {
         return (
             <RaceForm
                 handleSubmit={ this.handleSubmit }
-                handleHoursChange={ this.handleHoursChange }
-                handleMinutesChange={ this.handleMinutesChange }
-                handleSecondsChange={ this.handleSecondsChange }
-                handleRaceChange={ this.handleRaceChange }
+                handleChange= { this.handleChange }
             >
             </RaceForm>
         );
@@ -69,7 +106,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        raceUpdated: (payload) => {
+            dispatch(updateRace(payload));
+        }
+    };
 };
 
 RaceFormContainer.propTypes = {};
