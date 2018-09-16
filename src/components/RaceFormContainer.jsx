@@ -14,7 +14,7 @@ export class RaceFormContainer extends PureComponent {
             hours: 0,
             minutes: 0,
             seconds: 0,
-            race: raceFormConfig.race.options.marathon
+            race: raceFormConfig.race.options.marathon.value
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
