@@ -1,14 +1,15 @@
 import React from 'react';
-import raceFormConfig from '../config/raceFormConfig';
+import PropTypes from 'prop-types';
+import raceConfig from '../config/raceConfig';
+import * as raceUnits from '../constants/raceUnits';
+import * as timeUnits from '../constants/timeUnits';
+import * as raceForm from '../constants/raceForm';
 
-export function RaceForm({ handleSubmit, handleChange }) {
+export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
 
-    let defaultRace = null;
-    for (let prop in raceFormConfig.race.options) {
-        if (raceFormConfig.race.options[prop].default) {
-            defaultRace = raceFormConfig.race.options[prop].value
-        }
-    }
+    const race = raceConfig.races.find((race) => {
+        return race.id === raceId;
+    });
 
     return (
         <form onSubmit={ handleSubmit }>
@@ -17,39 +18,57 @@ export function RaceForm({ handleSubmit, handleChange }) {
                 <input
                     type="number"
                     onChange={ handleChange }
-                    name={ raceFormConfig.hours.name }
+                    name={ timeUnits.HOURS }
                 />
                 <input
-                    type="text"
+                    type="number"
                     onChange={ handleChange }
-                    name={ raceFormConfig.minutes.name }
+                    name={ timeUnits.MINUTES }
                 />
-                <input type="text" 
+                <input type="number" 
                     onChange={ handleChange }
-                    name={ raceFormConfig.seconds.name }
+                    name={ timeUnits.SECONDS }
                 />
             </label>
             <select
-                name={ raceFormConfig.race.name }
+                name={ raceForm.RACE_ID }
                 onChange={ handleChange }
-                value={ defaultRace }
+                value={ race.id }
             >
-                <option value={ raceFormConfig.race.options.marathon.value } >
-                    Marathon
-                </option>
-                <option value={ raceFormConfig.race.options.half.value } >
-                    Half Marathon
-                </option>
-                <option value={ raceFormConfig.race.options.tenKM.value } >
-                    10K
-                </option>
-                <option value={ raceFormConfig.race.options.fiveKM.value } >
-                    5K
-                </option>
+                {raceConfig.races.map((race) =>
+                    <option value={ race.id } key={ race.id } >
+                        { race.name }
+                    </option>
+                )}
             </select>
+            <input
+                type="radio"
+                id={ raceUnits.MILES }
+                name={ raceForm.RACE_UNIT }
+                onChange={ handleChange }
+                value={ raceUnits.MILES }
+                checked={ raceUnit === raceUnits.MILES }
+            />
+            <label htmlFor={ raceUnits.MILES }>Miles</label>
+            <input
+                type="radio"
+                id={ raceUnits.KM }
+                name={ raceForm.RACE_UNIT }
+                onChange={ handleChange }
+                value={ raceUnits.KM }
+                checked={ raceUnit === raceUnits.KM }
+            />
+            <label htmlFor={ raceUnits.KM }>KM</label>
             <input type="submit" value="Submit" />
         </form>
-    )
+    );
 }
+
+RaceForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    raceUnit: PropTypes.string.isRequired,
+    raceId: PropTypes.string.isRequired
+};
 
 export default RaceForm;

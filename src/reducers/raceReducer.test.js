@@ -5,21 +5,24 @@ describe('raceReducer', () => {
 
     const state = {
         totalSeconds: 0,
-        race: 'old_race'
+        raceId: 'old_race',
+        raceUnit: 'old_unit'
     };
     const raceUdatedAction = {
         type: actionTypes.RACE_UPDATED,
         payload: {
             totalSeconds: 10,
-            race: 'new_race'
+            raceId: 'new_race',
+            raceUnit: 'new_unit'
         }
     };
 
     it('should update totalSeconds and race with new values', () => {
-        const actual = raceReducer(state, raceUdatedAction)
+        const actual = raceReducer(state, raceUdatedAction);
         expect(actual).toEqual({
             totalSeconds: raceUdatedAction.payload.totalSeconds,
-            race: raceUdatedAction.payload.race
-        })
+            raceId: raceUdatedAction.payload.raceId,
+            raceUnit: raceUdatedAction.payload.raceUnit
+        });
     });
 });

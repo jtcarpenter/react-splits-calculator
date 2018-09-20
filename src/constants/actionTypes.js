@@ -1,3 +1,3 @@
-export const INCREMENT = 'counter/INCREMENT';
-export const DECREMENT = 'counter/DECREMENT';
-export const RACE_UPDATED = 'race/RACE_UPDATED';
+export const INCREMENT = 'actionTypes/INCREMENT';
+export const DECREMENT = 'actionTypes/DECREMENT';
+export const RACE_UPDATED = 'actionTypes/RACE_UPDATED';

@@ -4,7 +4,7 @@ import { App } from './App';
 
 test('App', () => {
     const app = shallow(
-      <App></App>
+        <App></App>
     );
     expect(app.exists()).toBe(true);
 });
