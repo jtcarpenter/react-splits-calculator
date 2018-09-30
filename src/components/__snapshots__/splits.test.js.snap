@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Splits should display correctly 1`] = `<ol />`;
+exports[`Splits should display correctly 1`] = `
+<table
+  className="sc-bdVaJa cCskwW"
+>
+  <thead>
+    <tr
+      className="sc-bwzfXH bUKoIo"
+    >
+      <th>
+        
+      </th>
+      <th>
+        Split
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+  <tfoot>
+    <tr
+      className="sc-bwzfXH bUKoIo"
+    >
+      <td
+        className="sc-htpNat bDYjCC"
+        colSpan="2"
+      >
+        Attach here
+      </td>
+    </tr>
+  </tfoot>
+</table>
+`;

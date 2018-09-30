@@ -21,7 +21,7 @@ export class SplitsContainer extends PureComponent {
         const distance = race[raceUnit];
         const splits = [];
         for (let i = 1, l = Math.ceil(distance); i <= l; i++) {
-            const split = { number: i };
+            const split = { number: i, raceUnit };
             if (i === l) {
                 split.time = time;
                 split.last = true;
@@ -50,7 +50,12 @@ export class SplitsContainer extends PureComponent {
             totalSeconds
         );
         return (
-            <Splits splits={ splits }></Splits>
+            <Splits
+                splits={ splits }
+                raceUnit={ raceUnit }
+                raceId={ raceId }
+            >
+            </Splits>
         );
     }
 }

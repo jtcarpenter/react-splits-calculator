@@ -27,6 +27,16 @@ export const raceConfig = {
             [raceUnits.MILES]: 3.10686,
             [raceUnits.KM]: 5
         }
+    ],
+    raceUnits: [
+        {
+            id: raceUnits.MILES,
+            name: 'M'
+        },
+        {
+            id: raceUnits.KM,
+            name: 'KM'
+        }
     ]
 };
 

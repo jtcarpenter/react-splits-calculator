@@ -36,13 +36,13 @@ export class RaceFormContainer extends PureComponent {
 
     handleChange(evt) {
         let hours = evt.target.name === timeUnits.HOURS
-            ? parseInt(evt.target.value, 10)
+            ? parseInt(evt.target.value, 10) || 0
             : this.state.hours;
         let minutes = evt.target.name === timeUnits.MINUTES
-            ? parseInt(evt.target.value, 10)
+            ? parseInt(evt.target.value, 10) || 0
             : this.state.minutes;
         let seconds = evt.target.name === timeUnits.SECONDS
-            ? parseInt(evt.target.value, 10)
+            ? parseInt(evt.target.value, 10) || 0
             : this.state.seconds;
         let raceId = evt.target.name === raceForm.RACE_ID
             ? evt.target.value
@@ -70,37 +70,6 @@ export class RaceFormContainer extends PureComponent {
 
     handleSubmit(evt) {
         evt.preventDefault();
-        let hours = evt.target.name === timeUnits.HOURS
-            ? parseInt(evt.target.hours.value, 10)
-            : this.state.hours;
-        let minutes = evt.target.name === timeUnits.MINUTES
-            ? parseInt(evt.target.minutes.value, 10)
-            : this.state.minutes;
-        let seconds = evt.target.name === timeUnits.SECONDS
-            ? parseInt(evt.target.seconds.value, 10)
-            : this.state.seconds;
-        let raceId = evt.target.name === raceForm.RACE_ID
-            ? evt.target.race.value
-            : this.state.raceId;
-        let raceUnit = evt.target.name === raceForm.RACE_UNIT
-            ? evt.target.raceUnit.value
-            : this.state.raceUnit;
-        this.setState({
-            hours,
-            minutes,
-            seconds,
-            raceId,
-            raceUnit
-        });
-        this.raceUpdated(
-            {
-                hours,
-                minutes,
-                seconds
-            },
-            raceId,
-            raceUnit
-        );
     }
 
     render() {

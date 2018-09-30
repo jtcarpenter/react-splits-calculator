@@ -19,15 +19,24 @@ export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
                     type="number"
                     onChange={ handleChange }
                     name={ timeUnits.HOURS }
+                    placeholder="Hours"
+                    min="0"
+                    max="24"
                 />
                 <input
                     type="number"
                     onChange={ handleChange }
                     name={ timeUnits.MINUTES }
+                    placeholder="Minutes"
+                    min="0"
+                    max="60"
                 />
                 <input type="number" 
                     onChange={ handleChange }
                     name={ timeUnits.SECONDS }
+                    placeholder="Seconds"
+                    min="0"
+                    max="60"
                 />
             </label>
             <select

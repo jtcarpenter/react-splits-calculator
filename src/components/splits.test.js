@@ -4,10 +4,14 @@ import renderer from 'react-test-renderer';
 import { Splits } from './Splits.jsx';
 
 const splits = [];
+const raceUnit = '';
+const raceId = '';
 
 const splitsComp = (
     <Splits
         splits={ splits }
+        raceUnit={ raceUnit }
+        raceId={ raceId }
     ></Splits>
 );
 
