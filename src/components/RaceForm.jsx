@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import raceConfig from '../config/raceConfig';
 import * as raceUnits from '../constants/raceUnits';
 import * as timeUnits from '../constants/timeUnits';
 import * as raceForm from '../constants/raceForm';
+
+const StyledForm = styled.form`
+    @media print {
+        display: none;
+    }
+`;
 
 export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
 
@@ -12,7 +19,7 @@ export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
     });
 
     return (
-        <form onSubmit={ handleSubmit }>
+        <StyledForm onSubmit={ handleSubmit }>
             <label>
                 time:
                 <input
@@ -69,7 +76,7 @@ export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
             />
             <label htmlFor={ raceUnits.KM }>KM</label>
             <input type="submit" value="Submit" />
-        </form>
+        </StyledForm>
     );
 }
 

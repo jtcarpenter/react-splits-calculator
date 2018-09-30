@@ -24,6 +24,9 @@ injectGlobal([`
             Helvetica, Arial,
             "Lucida Grande",
             sans-serif;
+        @page {
+            margin: 0;
+        }
     }
 `]);
 
@@ -32,7 +35,7 @@ export class App extends Component {
         return (
             <ThemeProvider theme={ theme }>
                 <Fragment>
-                    <Counter></Counter>
+                    {/* <Counter></Counter> */}
                     <RaceForm></RaceForm>
                     <Splits></Splits>
                 </Fragment>
