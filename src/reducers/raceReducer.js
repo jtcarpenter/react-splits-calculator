@@ -8,7 +8,7 @@ const defaultState = {
     raceUnit: raceUnits.MILES
 };
 
-export default function counter(state = defaultState, action) {
+export default function raceReducer(state = defaultState, action) {
     switch (action.type) {
     case actionTypes.RACE_UPDATED:
         return Object.assign({}, state, {

@@ -1,33 +1,326 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Splits should display correctly 1`] = `
-<table
-  className="sc-bdVaJa cCskwW"
->
-  <thead>
-    <tr
-      className="sc-bwzfXH bUKoIo"
-    >
-      <th>
-        
-      </th>
-      <th>
-        Split
-      </th>
-    </tr>
-  </thead>
-  <tbody />
-  <tfoot>
-    <tr
-      className="sc-bwzfXH bUKoIo"
-    >
-      <td
-        className="sc-htpNat bDYjCC"
-        colSpan="2"
+Array [
+  <table
+    className="sc-bdVaJa gOAWSz"
+  >
+    <thead>
+      <tr
+        className="sc-bwzfXH iIbpPR"
       >
-        Attach here
-      </td>
-    </tr>
-  </tfoot>
-</table>
+        <th
+          className="sc-ifAKCX jCZnIH"
+        >
+          
+        </th>
+        <th
+          className="sc-ifAKCX jCZnIH"
+        >
+          Split
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+    <tfoot>
+      <tr
+        className="sc-bxivhb jUTdPV"
+      >
+        <td
+          className="sc-EHOje dqQfGe"
+          colSpan="2"
+        />
+      </tr>
+    </tfoot>
+  </table>,
+  <ul
+    className="sc-bZQynM jLHPZU"
+  >
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        1
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        2
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        3
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        4
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        5
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        6
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        7
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        8
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        9
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        10
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        11
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        12
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        13
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        14
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        15
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        16
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        17
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        18
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        19
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        20
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        21
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        22
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        23
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        24
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        25
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        26
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        27
+        CM
+      </span>
+    </li>
+    <li
+      className="sc-gzVnrw ehjYSO"
+    >
+      <span
+        className="sc-htoDjs fmLLtH"
+      >
+        28
+        CM
+      </span>
+    </li>
+  </ul>,
+  <p
+    className="sc-dnqmqq fIabpc"
+  >
+    Instructions
+  </p>,
+]
 `;
