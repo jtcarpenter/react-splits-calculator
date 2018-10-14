@@ -25,6 +25,7 @@ injectGlobal([`
             "Lucida Grande",
             sans-serif;
         @page {
+            size: A4 portrait;
             margin: 0;
         }
     }
