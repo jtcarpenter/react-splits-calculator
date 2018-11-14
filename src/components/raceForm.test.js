@@ -7,6 +7,7 @@ import * as raceUnits from '../constants/raceUnits';
 const raceForm = (
     <RaceForm
         handleSubmit={() => {}}
+        handleTimeChange={() => {}}
         handleChange={() => {}}
         raceUnit= { raceUnits.MILES }
         raceId={ raceIds.MARATHON }

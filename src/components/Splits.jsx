@@ -25,17 +25,16 @@ function resolvePrintRowFontSize(resolvePrintRowHeight) {
 const StyledTable = styled.table`
     page-break-inside: avoid;
     table-layout:fixed
-    background: ${(props) => props.theme.PRIMARY_LIGHT};
     margin: 0;
     padding: 0;
     border-collapse: collapse;
     border-spacing: 0;
     border: ${PRINT_BORDER_WIDTH}px dashed ${(props) => props.theme.DIVIDER};
+    float: left;
 
     @media print {
         border-width: ${PRINT_BORDER_WIDTH}mm;
         margin: ${PRINT_MARGIN_HEIGHT}mm;
-        float: left;
     }
 `;
 
@@ -113,10 +112,10 @@ const StyledOl = styled.ul`
     list-style: none;
     padding: 0;
     margin: 0;
+    float: left;
 
     @media print {
         display: block;
-        float: left;
         margin-top: ${PRINT_MARGIN_HEIGHT}mm;
     }
 `;
@@ -136,6 +135,11 @@ const StyledSpan = styled.span`
     position: absolute;
     bottom: 0;
     border-bottom: .5mm solid black;
+`;
+
+const StyledP = styled.p`
+    display: block;
+    float: left;
 `;
 
 export function Splits({ splits, raceId, raceUnit }) {
@@ -212,6 +216,7 @@ export function Splits({ splits, raceId, raceUnit }) {
                     </StyledLi>
                 )}
             </StyledOl>
+            <StyledP>Instructions</StyledP>
         </Fragment>
     );
 }

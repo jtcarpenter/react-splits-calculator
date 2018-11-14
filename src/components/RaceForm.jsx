@@ -3,16 +3,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import raceConfig from '../config/raceConfig';
 import * as raceUnits from '../constants/raceUnits';
-import * as timeUnits from '../constants/timeUnits';
 import * as raceForm from '../constants/raceForm';
+import TimeInput from './TimeInput.jsx';
 
 const StyledForm = styled.form`
+    float: left;
     @media print {
         display: none;
     }
 `;
 
-export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
+export function RaceForm({
+    handleSubmit,
+    handleChange,
+    handleTimeChange,
+    raceUnit,
+    raceId }) {
 
     const race = raceConfig.races.find((race) => {
         return race.id === raceId;
@@ -20,32 +26,7 @@ export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
 
     return (
         <StyledForm onSubmit={ handleSubmit }>
-            <label>
-                time:
-                <input
-                    type="number"
-                    onChange={ handleChange }
-                    name={ timeUnits.HOURS }
-                    placeholder="Hours"
-                    min="0"
-                    max="24"
-                />
-                <input
-                    type="number"
-                    onChange={ handleChange }
-                    name={ timeUnits.MINUTES }
-                    placeholder="Minutes"
-                    min="0"
-                    max="60"
-                />
-                <input type="number" 
-                    onChange={ handleChange }
-                    name={ timeUnits.SECONDS }
-                    placeholder="Seconds"
-                    min="0"
-                    max="60"
-                />
-            </label>
+            <TimeInput onChange={ handleTimeChange } />
             <select
                 name={ raceForm.RACE_ID }
                 onChange={ handleChange }
@@ -82,6 +63,7 @@ export function RaceForm({ handleSubmit, handleChange, raceUnit, raceId }) {
 
 RaceForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
+    handleTimeChange: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
     raceUnit: PropTypes.string.isRequired,
     raceId: PropTypes.string.isRequired

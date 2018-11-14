@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeInput should display correctly 1`] = `
+<label
+  className="sc-bdVaJa eKxwv"
+>
+  time:
+  <input
+    className="sc-bwzfXH gEvcfP"
+    id="hour"
+    name="hour"
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="0"
+    type="string"
+    value=""
+  />
+  :
+  <input
+    className="sc-bwzfXH gEvcfP"
+    id="minute"
+    name="minute"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    placeholder="00"
+    type="text"
+    value=""
+  />
+  :
+  <input
+    className="sc-bwzfXH gEvcfP"
+    id="second"
+    name="second"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="00"
+    type="text"
+    value=""
+  />
+</label>
+`;

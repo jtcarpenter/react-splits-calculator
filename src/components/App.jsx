@@ -23,6 +23,7 @@ injectGlobal([`
             Helvetica, Arial,
             "Lucida Grande",
             sans-serif;
+        margin: 20px;
         @page {
             size: A4 portrait;
             margin: 0;
