@@ -7,35 +7,42 @@ exports[`TimeInput should display correctly 1`] = `
   time:
   <input
     className="sc-bwzfXH gEvcfP"
-    id="hour"
-    name="hour"
+    data-max-length={1}
+    data-next="input-minute"
+    id="input-hour"
+    name="input-hour"
     onChange={[Function]}
+    onKeyDown={[Function]}
     onKeyPress={[Function]}
     placeholder="0"
     type="string"
     value=""
   />
-  :
   <input
     className="sc-bwzfXH gEvcfP"
-    id="minute"
-    name="minute"
+    data-max-length={2}
+    data-next="input-second"
+    data-prev="input-hour"
+    id="input-minute"
+    name="input-minute"
     onChange={[Function]}
     onKeyDown={[Function]}
     onKeyPress={[Function]}
     placeholder="00"
-    type="text"
+    type="string"
     value=""
   />
-  :
   <input
     className="sc-bwzfXH gEvcfP"
-    id="second"
-    name="second"
+    data-max-length={2}
+    data-prev="input-minute"
+    id="input-second"
+    name="input-second"
     onChange={[Function]}
     onKeyDown={[Function]}
+    onKeyPress={[Function]}
     placeholder="00"
-    type="text"
+    type="string"
     value=""
   />
 </label>

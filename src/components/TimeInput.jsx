@@ -17,11 +17,16 @@ const StyledInput = styled.input`
     outline: none;
 `;
 
-const VALID_HOUR_REGEXP = /^$|^\d$/;
-const VALID_MINUTE_REGEXP = /^([0-5]\d?)?$/;
-const VALID_SECOND_REGEXP = VALID_MINUTE_REGEXP;
-const MAX_HOUR_LENGTH = 1;
-const MAX_MINUTE_LENGTH = 2;
+export const HOUR_ID = 'input-hour';
+export const MINUTE_ID = 'input-minute';
+export const SECOND_ID = 'input-second';
+
+const VALID_REGEXP = {
+    [HOUR_ID]: /^$|^\d$/,
+    [MINUTE_ID]: /^([0-5]\d?)?$/,
+    [SECOND_ID]: /^([0-5]\d?)?$/
+};
+
 const KEY_CODE_BACKSPACE = 8;
 
 export class TimeInput extends PureComponent {
@@ -30,107 +35,83 @@ export class TimeInput extends PureComponent {
         super(props);
         this.props = props;
 
-        this.handleHourKeyPress = this.handleHourKeyPress.bind(this);
-        this.handleHourChange = this.handleHourChange.bind(this);
-
-        this.handleMinuteKeyDown = this.handleMinuteKeyDown.bind(this);
-        this.handleMinuteKeyPress = this.handleMinuteKeyPress.bind(this);
-        this.handleMinuteChange = this.handleMinuteChange.bind(this);
-
-        this.handleSecondKeyDown = this.handleSecondKeyDown.bind(this);
-        this.handleSecondChange = this.handleSecondChange.bind(this);
-
         this.state = {
-            hour: '',
-            minute: '',
-            second: ''
+            [HOUR_ID]: '',
+            [MINUTE_ID]: '',
+            [SECOND_ID]: ''
         };
+
+        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
+        this.inputs = [
+            {
+                id: HOUR_ID,
+                next: MINUTE_ID,
+                el: null,
+                placeholder: '0',
+                maxLength: 1
+            },
+            {
+                id: MINUTE_ID,
+                prev: HOUR_ID,
+                next: SECOND_ID,
+                el: null,
+                placeholder: '00',
+                maxLength: 2
+            },
+            {
+                id: SECOND_ID,
+                prev: MINUTE_ID,
+                el: null,
+                placeholder: '00',
+                maxLength: 2
+            }
+        ];
     }
 
-    handleHourKeyPress(evt) {
-        if (evt.target.selectionStart === MAX_HOUR_LENGTH) {
-            this.minuteInput.focus();
-        }
-    }
-
-    handleHourChange(evt) {
-        let hour = evt.target.value;
-        let valid = VALID_HOUR_REGEXP.test(hour);
-        if (!valid) {
-            evt.preventDefault();
-            return;
-        }
-        this.setState({ hour });
-        if (hour.length === MAX_HOUR_LENGTH) {
-            this.minuteInput.focus();
-        }
-        this.props.onChange({
-            hour,
-            minute: this.state.minute,
-            second: this.state.second
-        });
-    }
-
-    handleMinuteKeyDown(evt) {
-        if (evt.keyCode === KEY_CODE_BACKSPACE) {
-            if (this.state.minute.length === 0) {
-                this.hourInput.focus();
+    handleKeyDown(evt) {
+        const { keyCode, target } = evt;
+        const { dataset = {}, id } = target;
+        const { prev } = dataset;
+        if (prev && keyCode === KEY_CODE_BACKSPACE) {
+            if (this.state[id].length === 0) {
+                this.inputs.find((input) => input.id === prev).el.focus();
                 evt.preventDefault();
             }
         }
     }
 
-    handleMinuteKeyPress(evt) {
-        if (evt.target.selectionStart === MAX_MINUTE_LENGTH) {
-            this.secondInput.focus();
+    handleKeyPress(evt) {
+        const { target } = evt;
+        const { dataset = {}, selectionStart } = target;
+        const { next, maxLength } = dataset;
+        if (next && selectionStart === maxLength) {
+            this.inputs.find((input) => input.id === next).el.focus();
         }
     }
 
-    handleMinuteChange(evt) {
-        let minute = evt.target.value;
-        let valid = VALID_MINUTE_REGEXP.test(minute);
+    handleChange(evt) {
+        const { target } = evt;
+        const { dataset = {}, id, value } = target;
+        const { next, maxLength, prev } = dataset;
+        const valid = VALID_REGEXP[id].test(value);
         if (!valid) {
             evt.preventDefault();
             return;
         }
-        this.setState({ minute });
-        if (minute.length === MAX_MINUTE_LENGTH) {
-            this.secondInput.focus();
+        this.setState({ [id]: value });
+        if (next && value.length === parseInt(maxLength, 10)) {
+            this.inputs.find((input) => input.id === next).el.focus();
         }
-        if (minute.length === 0) {
-            this.hourInput.focus();
-        }
-        this.props.onChange({
-            hour: this.state.hour,
-            minute,
-            second: this.state.second
-        });
-    }
-
-    handleSecondKeyDown(evt) {
-        if (evt.keyCode === KEY_CODE_BACKSPACE) {
-            if (this.state.second.length === 0) {
-                this.minuteInput.focus();
-                evt.preventDefault();
-            }
-        }
-    }
-
-    handleSecondChange(evt) {
-        let second = evt.target.value;
-        let valid = VALID_SECOND_REGEXP.test(second);
-        if (!valid) {
-            evt.preventDefault();
-            return;
-        }
-        this.setState({ second });
-        if (second.length === 0) {
-            this.minuteInput.focus();
+        if (prev && value.length === 0) {
+            this.inputs.find((input) => input.id === prev).el.focus();
         }
         this.props.onChange({
-            hour: this.state.hour,
-            minute: this.state.minute,
-            second
+            hour: id === HOUR_ID ? value : this.state[HOUR_ID],
+            minute: id === MINUTE_ID ? value : this.state[MINUTE_ID],
+            second: id === SECOND_ID ? value : this.state[SECOND_ID]
         });
     }
 
@@ -138,39 +119,23 @@ export class TimeInput extends PureComponent {
         return (
             <StyledLabel>
                 time:
-                <StyledInput
-                    innerRef={(input) => { this.hourInput = input; }} 
-                    type="string"
-                    onKeyPress={ this.handleHourKeyPress }
-                    onChange={ this.handleHourChange }
-                    placeholder="0"
-                    value={ this.state.hour }
-                    name="hour"
-                    id="hour"
-                />
-                :
-                <StyledInput
-                    innerRef={(input) => { this.minuteInput = input; }} 
-                    type="text"
-                    onKeyDown={ this.handleMinuteKeyDown }
-                    onKeyPress={ this.handleMinuteKeyPress }
-                    onChange={ this.handleMinuteChange }
-                    placeholder="00"
-                    value={ this.state.minute }
-                    name="minute"
-                    id="minute"
-                />
-                :
-                <StyledInput
-                    innerRef={(input) => { this.secondInput = input; }} 
-                    type="text"
-                    onKeyDown={ this.handleSecondKeyDown }
-                    onChange={ this.handleSecondChange }
-                    placeholder="00"
-                    value={ this.state.second }
-                    name="second"
-                    id="second"
-                />
+                {this.inputs.map((input, index) => 
+                    <StyledInput
+                        key={ index }
+                        innerRef={ (el) => { input.el = el; } }
+                        type="string"
+                        onKeyDown={ this.handleKeyDown }
+                        onKeyPress={ this.handleKeyPress }
+                        onChange={ this.handleChange }
+                        placeholder={ input.placeholder }
+                        value={ this.state[input.id] }
+                        name={ input.id }
+                        id={ input.id }
+                        data-prev={ input.prev }
+                        data-next={ input.next }
+                        data-max-length={ input.maxLength }
+                    />
+                )}
             </StyledLabel>
         );
     }
