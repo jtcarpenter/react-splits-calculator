@@ -11,11 +11,12 @@ const defaultState = {
 export default function raceReducer(state = defaultState, action) {
     switch (action.type) {
     case actionTypes.RACE_UPDATED:
-        return Object.assign({}, state, {
+        return {
+            ...state,
             totalSeconds: action.payload.totalSeconds,
             raceId: action.payload.raceId,
             raceUnit: action.payload.raceUnit
-        });
+        };
     default:
         return state;
     }
