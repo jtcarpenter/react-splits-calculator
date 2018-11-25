@@ -1,35 +1,71 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = {
-    app: path.join(__dirname, 'src/'),
-    public: path.join(__dirname, 'public')
+    src: path.join(__dirname, 'src/'),
+    dev: path.join(__dirname, 'public'),
+    dist: path.join(__dirname, 'dist')
+};
+const TITLE = 'Race Split Calculator';
+const PROD = 'prod';
+const DEV = 'dev';
+const ENV = process.env.NODE_ENV === PROD ? PROD : DEV;
+
+// Rules
+const babelLoaderRule = {
+    test: /\.jsx?$/,
+    include: PATHS.src,
+    exclude: /node_modules/,
+    loader: 'babel-loader',
+    query: {
+        babelrc: false,
+        presets: ['@babel/env', '@babel/react']
+    }
 };
 
-module.exports = {
+// Plugins
+const htmlWebpackPluginInstance = new HtmlWebpackPlugin({
+    title: TITLE,
+    filename: 'index.html',
+    template: `${PATHS.src}/index.html`,
+});
+const plugins = [htmlWebpackPluginInstance ];
+
+// Defaults
+const configDefaults = {
     entry: {
-        app: PATHS.app + '/index.js'
+        app: `${PATHS.src}/index.js`
     },
     output: {
-        path: PATHS.public,
         filename: 'bundle.js'
     },
     devtool: 'eval-source-map',
-    devServer: {
-        inline: true,
-        port: 3333,
-        contentBase: PATHS.public
-    },
     module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                include: PATHS.app,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    babelrc: false,
-                    presets: ['@babel/env', '@babel/react']
-                }
-            }
-        ]
-    }
-}
+        rules: [ babelLoaderRule ]
+    },
+    plugins: [ ...plugins ]
+};
+
+// Config by env
+const config = {
+    [DEV]: {
+        ...configDefaults,
+        output: {
+            path: PATHS.dev
+        },
+        devServer: {
+            inline: true,
+            port: 3333,
+            contentBase: PATHS.dev
+        },
+        plugins: [ ...plugins ]
+    },
+    [PROD]: {
+        ...configDefaults,
+        output: {
+            path: PATHS.dist
+        },
+        plugins: [ ...plugins ]
+    },
+};
+
+module.exports = config[ENV];
