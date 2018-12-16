@@ -8,9 +8,33 @@ import TimeInput from './TimeInput.jsx';
 
 const StyledForm = styled.form`
     float: left;
+    padding: 0 1rem;
     @media print {
         display: none;
     }
+`;
+
+const StyledFormElement = styled.div`
+    margin: 0 0 1rem 0;
+`;
+
+const StyledRadioContainer = styled.div`
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const StyledSelect = styled.select`
+    display: block;
+    width: 100%;
+    height: 2rem;
+`;
+
+const StyledSubmitInput = styled.input`
+    width: 4rem;
+    margin: 0 auto;
+    display: block;
 `;
 
 export function RaceForm({
@@ -26,37 +50,45 @@ export function RaceForm({
 
     return (
         <StyledForm onSubmit={ handleSubmit }>
-            <TimeInput onChange={ handleTimeChange } />
-            <select
-                name={ raceForm.RACE_ID }
-                onChange={ handleChange }
-                value={ race.id }
-            >
-                {raceConfig.races.map((race) =>
-                    <option value={ race.id } key={ race.id } >
-                        { race.name }
-                    </option>
-                )}
-            </select>
-            <input
-                type="radio"
-                id={ raceUnits.MILES }
-                name={ raceForm.RACE_UNIT }
-                onChange={ handleChange }
-                value={ raceUnits.MILES }
-                checked={ raceUnit === raceUnits.MILES }
-            />
-            <label htmlFor={ raceUnits.MILES }>Miles</label>
-            <input
-                type="radio"
-                id={ raceUnits.KM }
-                name={ raceForm.RACE_UNIT }
-                onChange={ handleChange }
-                value={ raceUnits.KM }
-                checked={ raceUnit === raceUnits.KM }
-            />
-            <label htmlFor={ raceUnits.KM }>KM</label>
-            <input type="submit" value="Submit" />
+            <StyledFormElement>
+                <TimeInput onChange={ handleTimeChange } />
+            </StyledFormElement>
+            <StyledFormElement>
+                <StyledSelect
+                    name={ raceForm.RACE_ID }
+                    onChange={ handleChange }
+                    value={ race.id }
+                >
+                    {raceConfig.races.map((race) =>
+                        <option value={ race.id } key={ race.id } >
+                            { race.name }
+                        </option>
+                    )}
+                </StyledSelect>
+            </StyledFormElement>
+            <StyledFormElement>
+                <StyledRadioContainer role="group">
+                    <input
+                        type="radio"
+                        id={ raceUnits.MILES }
+                        name={ raceForm.RACE_UNIT }
+                        onChange={ handleChange }
+                        value={ raceUnits.MILES }
+                        checked={ raceUnit === raceUnits.MILES }
+                    />
+                    <label htmlFor={ raceUnits.MILES }>Miles</label>
+                    <input
+                        type="radio"
+                        id={ raceUnits.KM }
+                        name={ raceForm.RACE_UNIT }
+                        onChange={ handleChange }
+                        value={ raceUnits.KM }
+                        checked={ raceUnit === raceUnits.KM }
+                    />
+                    <label htmlFor={ raceUnits.KM }>KM</label>
+                </StyledRadioContainer>
+            </StyledFormElement>
+            <StyledSubmitInput type="submit" value="Submit" />
         </StyledForm>
     );
 }

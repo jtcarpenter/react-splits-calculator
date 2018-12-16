@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 const StyledLabel = styled.label`
     border: 1px solid #777777;
-    padding: 15px;
+    padding: .5rem 1rem;
     border-radius: 5px;
+    display: block;
 `;
 
 const StyledInput = styled.input`

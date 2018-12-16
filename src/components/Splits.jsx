@@ -143,11 +143,6 @@ const StyledSpan = styled.span`
     border-bottom: .5mm solid black;
 `;
 
-const StyledP = styled.p`
-    display: block;
-    float: left;
-`;
-
 export function Splits({ splits, raceId, raceUnit }) {
 
     function parseSplit(split) {
@@ -222,7 +217,6 @@ export function Splits({ splits, raceId, raceUnit }) {
                     </StyledLi>
                 )}
             </StyledOl>
-            <StyledP>Instructions</StyledP>
         </Fragment>
     );
 }
