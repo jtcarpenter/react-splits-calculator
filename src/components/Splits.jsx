@@ -9,13 +9,19 @@ const PRINT_THEAD_HEIGHT = 10;
 const PRINT_FONT_SIZE_SCALE = 1;
 const PRINT_BORDER_WIDTH = .5;
 const PRINT_WRIST_SIZE = 150;
+const MAX_PRINT_ROW_HEIGHT = 10;
 const PRINT_TFOOT_HEIGHT =  A4_PAPER_LENGTH_MM -
                             PRINT_WRIST_SIZE -
                             PRINT_THEAD_HEIGHT -
                             (PRINT_MARGIN_HEIGHT * 2);
 
 function resolvePrintRowHeight(numSplits) {
-    return ((PRINT_WRIST_SIZE - PRINT_THEAD_HEIGHT) / parseInt(numSplits + 1));
+    const calculatedPrintRowHeight = (
+        (PRINT_WRIST_SIZE - PRINT_THEAD_HEIGHT) / parseInt(numSplits + 1)
+    );
+    return calculatedPrintRowHeight < MAX_PRINT_ROW_HEIGHT
+        ? calculatedPrintRowHeight
+        : MAX_PRINT_ROW_HEIGHT;
 }
 
 function resolvePrintRowFontSize(resolvePrintRowHeight) {
