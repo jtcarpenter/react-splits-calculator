@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import RaceForm from './RaceFormContainer.jsx';
-import Splits from './SplitsContainer.jsx';
+import RaceForm from './raceForm/RaceFormContainer.jsx';
+import Splits from './splits/SplitsContainer.jsx';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 
 const theme = {

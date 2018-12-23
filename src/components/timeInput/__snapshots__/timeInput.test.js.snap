@@ -2,11 +2,11 @@
 
 exports[`TimeInput should display correctly 1`] = `
 <label
-  className="sc-bdVaJa eKxwv"
+  className="sc-bdVaJa iYHEhk"
 >
   time:
   <input
-    className="sc-bwzfXH gEvcfP"
+    className="sc-bwzfXH dgLpzH"
     data-max-length={1}
     data-next="input-minute"
     id="input-hour"
@@ -19,7 +19,7 @@ exports[`TimeInput should display correctly 1`] = `
     value=""
   />
   <input
-    className="sc-bwzfXH gEvcfP"
+    className="sc-bwzfXH dgLpzH"
     data-max-length={2}
     data-next="input-second"
     data-prev="input-hour"
@@ -33,7 +33,7 @@ exports[`TimeInput should display correctly 1`] = `
     value=""
   />
   <input
-    className="sc-bwzfXH gEvcfP"
+    className="sc-bwzfXH dgLpzH"
     data-max-length={2}
     data-prev="input-minute"
     id="input-second"

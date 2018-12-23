@@ -1,22 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const StyledLabel = styled.label`
-    border: 1px solid #777777;
-    padding: .5rem 1rem;
-    border-radius: 5px;
-    display: block;
-`;
-
-const StyledInput = styled.input`
-    border: none;
-    border-radius: 3px;
-    padding: 10px 5px;
-    text-align: center;
-    width: 1.5em; // hour input will be less
-    outline: none;
-`;
+import Label from './Label.jsx';
+import Input from './Input.jsx';
 
 export const HOUR_ID = 'input-hour';
 export const MINUTE_ID = 'input-minute';
@@ -118,10 +103,10 @@ export class TimeInput extends PureComponent {
 
     render() {
         return (
-            <StyledLabel>
+            <Label>
                 time:
                 {this.inputs.map((input, index) => 
-                    <StyledInput
+                    <Input
                         key={ index }
                         innerRef={ (el) => { input.el = el; } }
                         type="string"
@@ -137,7 +122,7 @@ export class TimeInput extends PureComponent {
                         data-max-length={ input.maxLength }
                     />
                 )}
-            </StyledLabel>
+            </Label>
         );
     }
 }

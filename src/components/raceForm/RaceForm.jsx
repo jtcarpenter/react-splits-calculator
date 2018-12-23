@@ -1,41 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import raceConfig from '../config/raceConfig';
-import * as raceUnits from '../constants/raceUnits';
-import * as raceForm from '../constants/raceForm';
-import TimeInput from './TimeInput.jsx';
-
-const StyledForm = styled.form`
-    float: left;
-    padding: 0 1rem;
-    @media print {
-        display: none;
-    }
-`;
-
-const StyledFormElement = styled.div`
-    margin: 0 0 1rem 0;
-`;
-
-const StyledRadioContainer = styled.div`
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-`;
-
-const StyledSelect = styled.select`
-    display: block;
-    width: 100%;
-    height: 2rem;
-`;
-
-const StyledSubmitInput = styled.input`
-    width: 4rem;
-    margin: 0 auto;
-    display: block;
-`;
+import raceConfig from '../../config/raceConfig';
+import * as raceUnits from '../../constants/raceUnits';
+import * as raceForm from '../../constants/raceForm';
+import TimeInput from './../timeInput/TimeInput.jsx';
+import Form from './Form.jsx';
+import Select from './Select.jsx';
+import FieldDiv from './FieldDiv.jsx';
+import RadioDiv from './RadioDiv.jsx';
+import Submit from './Submit.jsx';
 
 export function RaceForm({
     handleSubmit,
@@ -49,12 +22,12 @@ export function RaceForm({
     });
 
     return (
-        <StyledForm onSubmit={ handleSubmit }>
-            <StyledFormElement>
+        <Form onSubmit={ handleSubmit }>
+            <FieldDiv>
                 <TimeInput onChange={ handleTimeChange } />
-            </StyledFormElement>
-            <StyledFormElement>
-                <StyledSelect
+            </FieldDiv>
+            <FieldDiv>
+                <Select
                     name={ raceForm.RACE_ID }
                     onChange={ handleChange }
                     value={ race.id }
@@ -64,10 +37,10 @@ export function RaceForm({
                             { race.name }
                         </option>
                     )}
-                </StyledSelect>
-            </StyledFormElement>
-            <StyledFormElement>
-                <StyledRadioContainer role="group">
+                </Select>
+            </FieldDiv>
+            <FieldDiv>
+                <RadioDiv role="group">
                     <input
                         type="radio"
                         id={ raceUnits.MILES }
@@ -86,10 +59,10 @@ export function RaceForm({
                         checked={ raceUnit === raceUnits.KM }
                     />
                     <label htmlFor={ raceUnits.KM }>KM</label>
-                </StyledRadioContainer>
-            </StyledFormElement>
-            <StyledSubmitInput type="submit" value="Submit" />
-        </StyledForm>
+                </RadioDiv>
+            </FieldDiv>
+            <Submit type="submit" value="Submit" />
+        </Form>
     );
 }
 

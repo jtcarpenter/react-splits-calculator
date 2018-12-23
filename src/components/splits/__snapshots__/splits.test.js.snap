@@ -3,11 +3,11 @@
 exports[`Splits should display correctly 1`] = `
 Array [
   <table
-    className="sc-bdVaJa dpAXrE"
+    className="sc-bdVaJa euWwet"
   >
     <thead>
       <tr
-        className="sc-bwzfXH eUMyv"
+        className="sc-bwzfXH knnOos"
       >
         <th
           className="sc-ifAKCX jCZnIH"
@@ -33,7 +33,7 @@ Array [
       </tr>
     </tfoot>
   </table>,
-  <ul
+  <ol
     className="sc-bZQynM jLHPZU"
   >
     <li
@@ -316,11 +316,6 @@ Array [
         CM
       </span>
     </li>
-  </ul>,
-  <p
-    className="sc-dnqmqq fIabpc"
-  >
-    Instructions
-  </p>,
+  </ol>,
 ]
 `;

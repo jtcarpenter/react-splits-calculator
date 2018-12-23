@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Splits from './Splits.jsx';
-import raceConfig from '../config/raceConfig';
+import raceConfig from '../../config/raceConfig';
 
 export class SplitsContainer extends PureComponent {
 
