@@ -12,8 +12,9 @@ import Submit from './Submit.jsx';
 
 export function RaceForm({
     handleSubmit,
-    handleChange,
     handleTimeChange,
+    handleRaceIdChange,
+    handleRaceUnitChange,
     raceUnit,
     raceId }) {
 
@@ -29,7 +30,7 @@ export function RaceForm({
             <FieldDiv>
                 <Select
                     name={ raceForm.RACE_ID }
-                    onChange={ handleChange }
+                    onChange={ handleRaceIdChange }
                     value={ race.id }
                 >
                     {raceConfig.races.map((race) =>
@@ -45,7 +46,7 @@ export function RaceForm({
                         type="radio"
                         id={ raceUnits.MILES }
                         name={ raceForm.RACE_UNIT }
-                        onChange={ handleChange }
+                        onChange={ handleRaceUnitChange }
                         value={ raceUnits.MILES }
                         checked={ raceUnit === raceUnits.MILES }
                     />
@@ -54,7 +55,7 @@ export function RaceForm({
                         type="radio"
                         id={ raceUnits.KM }
                         name={ raceForm.RACE_UNIT }
-                        onChange={ handleChange }
+                        onChange={ handleRaceUnitChange }
                         value={ raceUnits.KM }
                         checked={ raceUnit === raceUnits.KM }
                     />
@@ -69,7 +70,8 @@ export function RaceForm({
 RaceForm.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     handleTimeChange: PropTypes.func.isRequired,
-    handleChange: PropTypes.func.isRequired,
+    handleRaceIdChange: PropTypes.func.isRequired,
+    handleRaceUnitChange: PropTypes.func.isRequired,
     raceUnit: PropTypes.string.isRequired,
     raceId: PropTypes.string.isRequired
 };

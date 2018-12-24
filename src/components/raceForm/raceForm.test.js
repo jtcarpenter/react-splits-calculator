@@ -8,7 +8,8 @@ const raceForm = (
     <RaceForm
         handleSubmit={() => {}}
         handleTimeChange={() => {}}
-        handleChange={() => {}}
+        handleRaceIdChange={() => {}}
+        handleRaceUnitChange={() => {}}
         raceUnit= { raceUnits.MILES }
         raceId={ raceIds.MARATHON }
     >
