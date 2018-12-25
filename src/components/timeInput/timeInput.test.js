@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { TimeInput, HOUR_ID, MINUTE_ID, SECOND_ID } from './TimeInput';
+import { TimeInput, HOUR_ID, MINUTE_ID, SECOND_ID } from 'components/timeInput/TimeInput';
 
 import renderer from 'react-test-renderer';
 

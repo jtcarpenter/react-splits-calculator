@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import raceConfig from '../../config/raceConfig';
-import * as raceUnits from '../../constants/raceUnits';
-import * as raceForm from '../../constants/raceForm';
-import TimeInput from './../timeInput/TimeInput.jsx';
-import Form from './Form.jsx';
-import Select from './Select.jsx';
-import FieldDiv from './FieldDiv.jsx';
-import RadioDiv from './RadioDiv.jsx';
-import Submit from './Submit.jsx';
+import raceConfig from 'config/raceConfig';
+import * as raceUnits from 'constants/raceUnits';
+import * as raceForm from 'constants/raceForm';
+import TimeInput from 'components/timeInput/TimeInput.jsx';
+import Form from 'components/raceForm/Form.jsx';
+import Select from 'components/raceForm/Select.jsx';
+import FieldDiv from 'components/raceForm/FieldDiv.jsx';
+import RadioDiv from 'components/raceForm/RadioDiv.jsx';
+import Submit from 'components/raceForm/Submit.jsx';
 
 export function RaceForm({
     handleSubmit,

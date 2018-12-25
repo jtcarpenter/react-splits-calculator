@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import raceConfig from '../../config/raceConfig';
-import Table from './Table.jsx';
-import TRHead from './TRHead.jsx';
-import TR from './TR.jsx';
-import TRFoot from './TRFoot.jsx';
-import TH from './TH.jsx';
-import TD from './TD.jsx';
-import OL from './OL.jsx';
-import LI from './LI.jsx';
-import Span from './Span.jsx';
+import raceConfig from 'config/raceConfig';
+import Table from 'components/splits/Table.jsx';
+import TRHead from 'components/splits/TRHead.jsx';
+import TR from 'components/splits/TR.jsx';
+import TRFoot from 'components/splits/TRFoot.jsx';
+import TH from 'components/splits/TH.jsx';
+import TD from 'components/splits/TD.jsx';
+import OL from 'components/splits/OL.jsx';
+import LI from 'components/splits/LI.jsx';
+import Span from 'components/splits/Span.jsx';
 
 const A4_PAPER_LENGTH_MM = 297;
 const PRINT_MARGIN_HEIGHT = 10;

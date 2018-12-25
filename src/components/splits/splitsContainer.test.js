@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SplitsContainer } from './/SplitsContainer';
-import * as raceIds from '../../constants/raceIds';
-import * as raceUnits from '../../constants/raceUnits';
+import { SplitsContainer } from 'components/splits/SplitsContainer';
+import * as raceIds from 'constants/raceIds';
+import * as raceUnits from 'constants/raceUnits';
 
 const splitsContainer = (
     <SplitsContainer

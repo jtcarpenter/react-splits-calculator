@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import RaceForm from './RaceForm.jsx';
-import { updateRace } from '../../actions/raceActions';
+import RaceForm from 'components/raceForm/RaceForm.jsx';
+import { updateRace } from 'actions/raceActions';
 
 export class RaceFormContainer extends PureComponent {
 

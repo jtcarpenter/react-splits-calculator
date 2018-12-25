@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { Splits } from './Splits.jsx';
+import { Splits } from 'components/splits/Splits.jsx';
 
 const splits = [];
 const raceUnit = '';

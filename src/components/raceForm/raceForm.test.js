@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { RaceForm } from './RaceForm.jsx';
-import * as raceIds from '../../constants/raceIds';
-import * as raceUnits from '../../constants/raceUnits';
+import { RaceForm } from 'components/raceForm/RaceForm.jsx';
+import * as raceIds from 'constants/raceIds';
+import * as raceUnits from 'constants/raceUnits';
 
 const raceForm = (
     <RaceForm

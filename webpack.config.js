@@ -9,6 +9,12 @@ const TITLE = 'Race Split Calculator';
 const PROD = 'prod';
 const DEV = 'dev';
 const ENV = process.env.NODE_ENV === PROD ? PROD : DEV;
+const resolve = {
+    modules: [
+        path.resolve('./src'),
+        path.resolve('./node_modules')
+    ]
+};
 
 // Rules
 const babelLoaderRule = {
@@ -38,6 +44,7 @@ const configDefaults = {
     output: {
         filename: 'bundle.js'
     },
+    resolve,
     devtool: 'eval-source-map',
     module: {
         rules: [ babelLoaderRule ]

@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "NODE_ENV=prod webpack -p",
-    "deploy": "NODE_ENV=prod webpack -p && scp -r ~/Sites/react-splits-calculator/dist/. jason@46.101.95.119:/var/www/react-splits-calculator/.",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
@@ -41,6 +40,9 @@
   "jest": {
     "setupFiles": [
       "<rootDir>/src/jest/setup.js"
+    ],
+    "modulePaths": [
+      "src"
     ]
   }
 }

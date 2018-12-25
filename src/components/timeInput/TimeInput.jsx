@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Label from './Label.jsx';
-import Input from './Input.jsx';
+import Label from 'components/timeInput/Label.jsx';
+import Input from 'components/timeInput/Input.jsx';
 
 export const HOUR_ID = 'input-hour';
 export const MINUTE_ID = 'input-minute';

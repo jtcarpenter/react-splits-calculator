@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../helpers/styleHelper';
+import { media } from 'helpers/styleHelper';
 
 const StyledTable = styled.table`
     page-break-inside: avoid;
