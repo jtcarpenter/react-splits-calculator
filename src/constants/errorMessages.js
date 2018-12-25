@@ -1,0 +1,1 @@
+export const ERROR_GENERAL = 'Something went wrong';

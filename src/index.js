@@ -5,6 +5,7 @@ import appStore from 'store/appStore';
 import RaceForm from 'components/raceForm/RaceFormContainer.jsx';
 import Splits from 'components/splits/SplitsContainer.jsx';
 import { injectGlobal, ThemeProvider } from 'styled-components';
+import ErrorBoundary from 'components/errorBoundary/ErrorBoundary.jsx';
 
 const theme = {
     PRIMARY: '#000000',
@@ -36,12 +37,14 @@ injectGlobal([`
 
 ReactDOM.render(
     <Provider store={appStore}>
-        <ThemeProvider theme={ theme }>
-            <Fragment>
-                <RaceForm></RaceForm>
-                <Splits></Splits>
-            </Fragment>
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider theme={ theme }>
+                <Fragment>
+                    <RaceForm></RaceForm>
+                    <Splits></Splits>
+                </Fragment>
+            </ThemeProvider>
+        </ErrorBoundary>
     </Provider>,
     document.getElementById('app')
 );
