@@ -10,12 +10,13 @@ import TD from 'components/splits/TD.jsx';
 import OL from 'components/splits/OL.jsx';
 import LI from 'components/splits/LI.jsx';
 import Span from 'components/splits/Span.jsx';
+import ColumnDiv from 'components/column/ColumnDiv.jsx';
 
 const A4_PAPER_LENGTH_MM = 297;
 const PRINT_MARGIN_HEIGHT = 10;
 const PRINT_THEAD_HEIGHT = 10;
 const PRINT_FONT_SIZE_SCALE = 1;
-const PRINT_BORDER_WIDTH = .5;
+const PRIMARY_DARK_WIDTH = .5;
 const PRINT_WRIST_SIZE = 150;
 const MAX_PRINT_ROW_HEIGHT = 10;
 const PRINT_TFOOT_HEIGHT =  A4_PAPER_LENGTH_MM -
@@ -71,50 +72,52 @@ export function Splits({ splits, raceId, raceUnit }) {
 
     return (
         <Fragment>
-            <Table
-                printBorderWidth={ PRINT_BORDER_WIDTH }
-                printMarginHeight={ PRINT_MARGIN_HEIGHT }
-            >
-                <thead>
-                    <TRHead
-                        printRowHeight={ printRowHeight }
-                        printRowFontSize={ printRowFontSize }
-                        printBorderWidth={ PRINT_BORDER_WIDTH }
-                    >
-                        <TH>{ raceUnitName(raceUnit) }</TH>
-                        <TH>Split</TH>
-                    </TRHead>
-                </thead>
-                <tbody>
-                    {splits.map((split, index) =>
-                        <TR
-                            key={ index }
-                            printRowHeight= { printRowHeight }
+            <ColumnDiv>
+                <Table
+                    printBorderWidth={ PRIMARY_DARK_WIDTH }
+                    printMarginHeight={ PRINT_MARGIN_HEIGHT }
+                >
+                    <thead>
+                        <TRHead
+                            printRowHeight={ printRowHeight }
                             printRowFontSize={ printRowFontSize }
-                            printBorderWidth={ PRINT_BORDER_WIDTH }
+                            printBorderWidth={ PRIMARY_DARK_WIDTH }
                         >
-                            <TD>
-                                { parseSplitNumber(split, raceId, raceUnit) }
-                            </TD>
-                            <TD>
-                                { parseSplit(split) }
-                            </TD>
-                        </TR>
+                            <TH>{ raceUnitName(raceUnit) }</TH>
+                            <TH>Split</TH>
+                        </TRHead>
+                    </thead>
+                    <tbody>
+                        {splits.map((split, index) =>
+                            <TR
+                                key={ index }
+                                printRowHeight= { printRowHeight }
+                                printRowFontSize={ printRowFontSize }
+                                printBorderWidth={ PRIMARY_DARK_WIDTH }
+                            >
+                                <TD>
+                                    { parseSplitNumber(split, raceId, raceUnit) }
+                                </TD>
+                                <TD>
+                                    { parseSplit(split) }
+                                </TD>
+                            </TR>
+                        )}
+                    </tbody>
+                    <tfoot>
+                        <TRFoot printTFootHeight={ PRINT_TFOOT_HEIGHT }>
+                            <TD colSpan="2"></TD>
+                        </TRFoot>
+                    </tfoot>
+                </Table>
+                <OL printMarginHeight={ PRINT_MARGIN_HEIGHT }>
+                    {markers.map((mark, index) =>
+                        <LI key={ index }>
+                            <Span>{ mark }CM</Span>
+                        </LI>
                     )}
-                </tbody>
-                <tfoot>
-                    <TRFoot printTFootHeight={ PRINT_TFOOT_HEIGHT }>
-                        <TD colSpan="2"></TD>
-                    </TRFoot>
-                </tfoot>
-            </Table>
-            <OL printMarginHeight={ PRINT_MARGIN_HEIGHT }>
-                {markers.map((mark, index) =>
-                    <LI key={ index }>
-                        <Span>{ mark }CM</Span>
-                    </LI>
-                )}
-            </OL>
+                </OL>
+            </ColumnDiv>
         </Fragment>
     );
 }

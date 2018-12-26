@@ -6,6 +6,7 @@ const StyledDiv = styled.div`
     margin: 0;
     display: flex;
     justify-content: space-between;
+    color: ${(props) => props.theme.PRIMARY};
 `;
 
 const RadioDiv = (...args) => (

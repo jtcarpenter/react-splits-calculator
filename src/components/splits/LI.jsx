@@ -5,7 +5,6 @@ const StyledLI = styled.li`
     display: block;
     height: 9.5mm;
     position: relative;
-
     &:first-child {
         height: 9mm;
         border-top: .5mm solid black;

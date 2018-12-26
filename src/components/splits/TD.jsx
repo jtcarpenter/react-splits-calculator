@@ -7,7 +7,7 @@ const StyledTD = styled.td`
     margin: 0;
     line-height: 1;
     table-layout:fixed;
-
+    color: ${(props) => props.theme.PRIMARY};
     &:first-child {
         padding-right: 5px;
     };
@@ -18,6 +18,7 @@ const StyledTD = styled.td`
 
     @media print {
         padding: 0 2mm;
+        color: ${(props) => props.theme.PRIMARY_DARK};
     }
 `;
 

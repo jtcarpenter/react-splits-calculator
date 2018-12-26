@@ -8,18 +8,6 @@ const StyledForm = styled.form`
     @media print {
         display: none;
     }
-    ${media.SMALL`
-        
-    `};
-    ${media.MEDIUM`
-        
-    `};
-    ${media.LARGE`
-        
-    `};
-    ${media.XLARGE`
-        
-    `};
 `;
 
 const Form = (...args) => (

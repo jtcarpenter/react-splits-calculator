@@ -12,11 +12,12 @@ const StyledTable = styled.table`
     border:
         ${(props) => props.printBorderWidth}px
         dashed
-        ${(props) => props.theme.DIVIDER};
+        ${(props) => props.theme.PRIMARY};
     float: left;
 
     @media print {
         border-width: ${(props) => props.printBorderWidth}mm;
+        border-color: ${(props) => props.theme.PRIMARY};
         margin: ${(props) => props.printMarginHeight}mm;
     }
     ${media.SMALL`

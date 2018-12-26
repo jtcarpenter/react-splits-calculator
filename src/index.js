@@ -8,18 +8,16 @@ import { injectGlobal, ThemeProvider } from 'styled-components';
 import ErrorBoundary from 'components/errorBoundary/ErrorBoundary.jsx';
 
 const theme = {
-    PRIMARY: '#000000',
+    PRIMARY: '#555555',
     PRIMARY_DARK: '#000000',
-    PRIMARY_LIGHT: '#efefef',
-    DIVIDER: '#000000',
-    ERROR_COLOUR: '#ea5a5a'
+    PRIMARY_LIGHT: '#ffffff'
 };
 
 injectGlobal([`
     body {
         margin: 0;
         padding: 0;
-        background-color: white;
+        background-color: ${theme.PRIMARY_LIGHT};
         font-family:
             "HelveticaNeue-Light",
             "Helvetica Neue Light",

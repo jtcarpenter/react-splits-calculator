@@ -8,6 +8,7 @@ import Form from 'components/raceForm/Form.jsx';
 import Select from 'components/raceForm/Select.jsx';
 import FieldDiv from 'components/raceForm/FieldDiv.jsx';
 import RadioDiv from 'components/raceForm/RadioDiv.jsx';
+import ColumnDiv from 'components/column/ColumnDiv.jsx';
 import Submit from 'components/raceForm/Submit.jsx';
 
 export function RaceForm({
@@ -23,47 +24,49 @@ export function RaceForm({
     });
 
     return (
-        <Form onSubmit={ handleSubmit }>
-            <FieldDiv>
-                <TimeInput onChange={ handleTimeChange } />
-            </FieldDiv>
-            <FieldDiv>
-                <Select
-                    name={ raceForm.RACE_ID }
-                    onChange={ handleRaceIdChange }
-                    value={ race.id }
-                >
-                    {raceConfig.races.map((race) =>
-                        <option value={ race.id } key={ race.id } >
-                            { race.name }
-                        </option>
-                    )}
-                </Select>
-            </FieldDiv>
-            <FieldDiv>
-                <RadioDiv role="group">
-                    <input
-                        type="radio"
-                        id={ raceUnits.MILES }
-                        name={ raceForm.RACE_UNIT }
-                        onChange={ handleRaceUnitChange }
-                        value={ raceUnits.MILES }
-                        checked={ raceUnit === raceUnits.MILES }
-                    />
-                    <label htmlFor={ raceUnits.MILES }>Miles</label>
-                    <input
-                        type="radio"
-                        id={ raceUnits.KM }
-                        name={ raceForm.RACE_UNIT }
-                        onChange={ handleRaceUnitChange }
-                        value={ raceUnits.KM }
-                        checked={ raceUnit === raceUnits.KM }
-                    />
-                    <label htmlFor={ raceUnits.KM }>KM</label>
-                </RadioDiv>
-            </FieldDiv>
-            <Submit type="submit" value="Submit" />
-        </Form>
+        <ColumnDiv>
+            <Form onSubmit={ handleSubmit }>
+                <FieldDiv>
+                    <TimeInput onChange={ handleTimeChange } />
+                </FieldDiv>
+                <FieldDiv>
+                    <Select
+                        name={ raceForm.RACE_ID }
+                        onChange={ handleRaceIdChange }
+                        value={ race.id }
+                    >
+                        {raceConfig.races.map((race) =>
+                            <option value={ race.id } key={ race.id } >
+                                { race.name }
+                            </option>
+                        )}
+                    </Select>
+                </FieldDiv>
+                <FieldDiv>
+                    <RadioDiv role="group">
+                        <input
+                            type="radio"
+                            id={ raceUnits.MILES }
+                            name={ raceForm.RACE_UNIT }
+                            onChange={ handleRaceUnitChange }
+                            value={ raceUnits.MILES }
+                            checked={ raceUnit === raceUnits.MILES }
+                        />
+                        <label htmlFor={ raceUnits.MILES }>Miles</label>
+                        <input
+                            type="radio"
+                            id={ raceUnits.KM }
+                            name={ raceForm.RACE_UNIT }
+                            onChange={ handleRaceUnitChange }
+                            value={ raceUnits.KM }
+                            checked={ raceUnit === raceUnits.KM }
+                        />
+                        <label htmlFor={ raceUnits.KM }>KM</label>
+                    </RadioDiv>
+                </FieldDiv>
+                <Submit type="submit" value="Submit" />
+            </Form>
+        </ColumnDiv>
     );
 }
 

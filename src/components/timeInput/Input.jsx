@@ -8,6 +8,7 @@ const StyledInput = styled.input`
     text-align: center;
     width: 1.5em;
     outline: none;
+    color: ${(props) => props.theme.PRIMARY};
 `;
 
 const Input = (...args) => (
