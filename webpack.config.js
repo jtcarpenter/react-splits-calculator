@@ -1,14 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const PATHS = {
-    src: path.join(__dirname, 'src/'),
-    dev: path.join(__dirname, 'public'),
-    dist: path.join(__dirname, 'dist')
-};
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TITLE = 'Race Split Calculator';
 const PROD = 'prod';
 const DEV = 'dev';
 const ENV = process.env.NODE_ENV === PROD ? PROD : DEV;
+const PATHS = {
+    src: path.join(__dirname, 'src/'),
+    [DEV]: path.join(__dirname, 'public'),
+    [PROD]: path.join(__dirname, 'dist')
+};
 const resolve = {
     modules: [
         path.resolve('./src'),
@@ -34,7 +35,22 @@ const htmlWebpackPluginInstance = new HtmlWebpackPlugin({
     filename: 'index.html',
     template: `${PATHS.src}/index.html`,
 });
-const plugins = [htmlWebpackPluginInstance ];
+const copyWebpackPluginInstance = new CopyWebpackPlugin([
+    {
+        from: path.resolve('manifest.json'),
+        to: `${PATHS[ENV]}/.`
+    },
+    {
+        from: path.resolve('icon-192x192.png'),
+        to: `${PATHS[ENV]}/.`
+    },
+    {
+        from: path.resolve('icon-512x512.png'),
+        to: `${PATHS[ENV]}/.`
+    }
+]);
+
+const plugins = [ htmlWebpackPluginInstance, copyWebpackPluginInstance ];
 
 // Defaults
 const configDefaults = {
@@ -42,7 +58,8 @@ const configDefaults = {
         app: `${PATHS.src}/index.js`
     },
     output: {
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        path: PATHS[ENV]
     },
     resolve,
     devtool: 'eval-source-map',
@@ -56,22 +73,14 @@ const configDefaults = {
 const config = {
     [DEV]: {
         ...configDefaults,
-        output: {
-            path: PATHS.dev
-        },
         devServer: {
             inline: true,
             port: 3333,
-            contentBase: PATHS.dev
-        },
-        plugins: [ ...plugins ]
+            contentBase: PATHS[ENV]
+        }
     },
     [PROD]: {
-        ...configDefaults,
-        output: {
-            path: PATHS.dist
-        },
-        plugins: [ ...plugins ]
+        ...configDefaults
     },
 };
 

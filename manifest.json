@@ -1,0 +1,23 @@
+{
+    "name": "React Splits Calculator",
+    "short_name": "Splits Calculator",
+    "start_url": "/?source=manifest",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "white",
+    "description": "A simple calculator for race splits",
+    "dir": "ltr",
+    "lang": "en-GB",
+    "icons": [
+        {
+            "src": "icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
