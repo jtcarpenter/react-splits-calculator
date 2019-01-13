@@ -1,21 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Splits should display correctly 1`] = `
-Array [
+<div
+  className="sc-dnqmqq irAkrN"
+>
   <table
-    className="sc-bdVaJa euWwet"
+    className="sc-bdVaJa kxxYvM"
   >
     <thead>
       <tr
-        className="sc-bwzfXH knnOos"
+        className="sc-bwzfXH WNlQL"
       >
         <th
-          className="sc-ifAKCX jCZnIH"
+          className="sc-ifAKCX eSDSEW"
         >
           
         </th>
         <th
-          className="sc-ifAKCX jCZnIH"
+          className="sc-ifAKCX eSDSEW"
         >
           Split
         </th>
@@ -27,295 +29,295 @@ Array [
         className="sc-bxivhb jUTdPV"
       >
         <td
-          className="sc-EHOje dqQfGe"
+          className="sc-EHOje kFKlGs"
           colSpan="2"
         />
       </tr>
     </tfoot>
-  </table>,
+  </table>
   <ol
     className="sc-bZQynM jLHPZU"
   >
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         1
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         2
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         3
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         4
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         5
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         6
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         7
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         8
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         9
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         10
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         11
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         12
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         13
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         14
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         15
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         16
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         17
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         18
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         19
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         20
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         21
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         22
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         23
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         24
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         25
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         26
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         27
         CM
       </span>
     </li>
     <li
-      className="sc-gzVnrw ehjYSO"
+      className="sc-gzVnrw kIuHPV"
     >
       <span
-        className="sc-htoDjs fmLLtH"
+        className="sc-htoDjs daqvur"
       >
         28
         CM
       </span>
     </li>
-  </ol>,
-]
+  </ol>
+</div>
 `;

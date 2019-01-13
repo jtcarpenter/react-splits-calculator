@@ -2,11 +2,11 @@
 
 exports[`TimeInput should display correctly 1`] = `
 <label
-  className="sc-bdVaJa iYHEhk"
+  className="sc-bdVaJa bNRryT"
 >
   time:
   <input
-    className="sc-bwzfXH dgLpzH"
+    className="sc-bwzfXH DVrLi"
     data-max-length={1}
     data-next="input-minute"
     id="input-hour"
@@ -15,11 +15,11 @@ exports[`TimeInput should display correctly 1`] = `
     onKeyDown={[Function]}
     onKeyPress={[Function]}
     placeholder="0"
-    type="string"
+    type="tel"
     value=""
   />
   <input
-    className="sc-bwzfXH dgLpzH"
+    className="sc-bwzfXH DVrLi"
     data-max-length={2}
     data-next="input-second"
     data-prev="input-hour"
@@ -29,11 +29,11 @@ exports[`TimeInput should display correctly 1`] = `
     onKeyDown={[Function]}
     onKeyPress={[Function]}
     placeholder="00"
-    type="string"
+    type="tel"
     value=""
   />
   <input
-    className="sc-bwzfXH dgLpzH"
+    className="sc-bwzfXH DVrLi"
     data-max-length={2}
     data-prev="input-minute"
     id="input-second"
@@ -42,7 +42,7 @@ exports[`TimeInput should display correctly 1`] = `
     onKeyDown={[Function]}
     onKeyPress={[Function]}
     placeholder="00"
-    type="string"
+    type="tel"
     value=""
   />
 </label>
