@@ -10,6 +10,8 @@ import FieldDiv from 'components/raceForm/FieldDiv.jsx';
 import RadioDiv from 'components/raceForm/RadioDiv.jsx';
 import ColumnDiv from 'components/column/ColumnDiv.jsx';
 import Submit from 'components/raceForm/Submit.jsx';
+import PrintBtn from 'components/raceForm/PrintBtn.jsx';
+import PrinterIcon from 'icons/PrinterIcon.jsx';
 
 export function RaceForm({
     handleSubmit,
@@ -64,7 +66,12 @@ export function RaceForm({
                         <label htmlFor={ raceUnits.KM }>KM</label>
                     </RadioDiv>
                 </FieldDiv>
-                <Submit type="submit" value="Submit" />
+                <FieldDiv>
+                    <PrintBtn><PrinterIcon/></PrintBtn>
+                </FieldDiv>
+                <FieldDiv>
+                    <Submit type="submit" value="Submit" />
+                </FieldDiv>
             </Form>
         </ColumnDiv>
     );

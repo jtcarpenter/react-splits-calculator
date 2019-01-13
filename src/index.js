@@ -2,7 +2,10 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import appStore from 'store/appStore';
+import Header from 'components/header/Header.jsx';
 import RaceForm from 'components/raceForm/RaceFormContainer.jsx';
+import Footer from 'components/footer/Footer.jsx';
+import FlatIconCredit from 'components/footer/FlatIconCredit.jsx';
 import Splits from 'components/splits/SplitsContainer.jsx';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import ErrorBoundary from 'components/errorBoundary/ErrorBoundary.jsx';
@@ -38,8 +41,12 @@ ReactDOM.render(
         <ErrorBoundary>
             <ThemeProvider theme={ theme }>
                 <Fragment>
+                    <Header></Header>
                     <RaceForm></RaceForm>
                     <Splits></Splits>
+                    <Footer>
+                        <FlatIconCredit />
+                    </Footer>
                 </Fragment>
             </ThemeProvider>
         </ErrorBoundary>
