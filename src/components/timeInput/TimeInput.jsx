@@ -109,7 +109,7 @@ export class TimeInput extends PureComponent {
                     <Input
                         key={ index }
                         innerRef={ (el) => { input.el = el; } }
-                        type="string"
+                        type="tel"
                         onKeyDown={ this.handleKeyDown }
                         onKeyPress={ this.handleKeyPress }
                         onChange={ this.handleChange }
