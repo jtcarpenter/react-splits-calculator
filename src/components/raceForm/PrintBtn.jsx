@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 const StyledBtn = styled.button`
     border: 0;
-    width: 2rem;
+    padding: .25rem 0;
+    width: 1.25rem;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const handleClick = () => window.print();
