@@ -1,6 +1,7 @@
 {
     "globals": {
-        "VERSION": true
+        "VERSION": true,
+        "BUNDLE_NAME": true
     },
     "env": {
         "browser": true,
@@ -39,6 +40,12 @@
         "semi": [
             "error",
             "always"
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": ["warn"]
+            }
         ]
     }
 }

@@ -1,7 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { DefinePlugin } = require('webpack');
+const packageJson = require('./package.json');
 const TITLE = 'Race Split Calculator';
+const BUNDLE_NAME = `bundle-${packageJson.version}.js`;
 const PROD = 'prod';
 const DEV = 'dev';
 const ENV = process.env.NODE_ENV === PROD ? PROD : DEV;
@@ -16,6 +19,12 @@ const resolve = {
         path.resolve('./node_modules')
     ]
 };
+
+const swConstants = new DefinePlugin({
+    NAME: JSON.stringify(packageJson.name),
+    VERSION: JSON.stringify(packageJson.version),
+    BUNDLE_NAME: JSON.stringify(BUNDLE_NAME)
+});
 
 // Rules
 const babelLoaderRule = {
@@ -50,7 +59,10 @@ const copyWebpackPluginInstance = new CopyWebpackPlugin([
     }
 ]);
 
-const plugins = [ htmlWebpackPluginInstance, copyWebpackPluginInstance ];
+const plugins = [
+    htmlWebpackPluginInstance,
+    copyWebpackPluginInstance
+];
 
 // Defaults
 const configDefaults = {
@@ -58,7 +70,7 @@ const configDefaults = {
         app: `${PATHS.src}/index.js`
     },
     output: {
-        filename: 'bundle.js',
+        filename: BUNDLE_NAME,
         path: PATHS[ENV]
     },
     resolve,
@@ -67,6 +79,21 @@ const configDefaults = {
         rules: [ babelLoaderRule ]
     },
     plugins: [ ...plugins ]
+};
+
+// Config for ServiceWorker
+const serviceWorkerConfig = {
+    entry: [
+        `${PATHS.src}/service-worker.js`
+    ],
+    output: {
+        filename: 'service-worker.js',
+        path: PATHS[ENV]
+    },
+    module: {
+        rules: [ babelLoaderRule ]
+    },
+    plugins: [...plugins, swConstants]
 };
 
 // Config by env
@@ -84,4 +111,4 @@ const config = {
     },
 };
 
-module.exports = config[ENV];
+module.exports = [config[ENV], serviceWorkerConfig];
