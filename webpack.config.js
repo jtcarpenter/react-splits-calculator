@@ -7,6 +7,7 @@ const TITLE = 'Race Split Calculator';
 const BUNDLE_NAME = `bundle-${packageJson.version}.js`;
 const PROD = 'prod';
 const DEV = 'dev';
+const DEFAULT_DEV_PORT = '3333';
 const ENV = process.env.NODE_ENV === PROD ? PROD : DEV;
 const PATHS = {
     src: path.join(__dirname, 'src/'),
@@ -19,6 +20,13 @@ const resolve = {
         path.resolve('./node_modules')
     ]
 };
+
+let devServerPort = DEFAULT_DEV_PORT;
+process.argv.forEach(val => {
+    if (val.match(/^port=[0-9]{4}$/)) {
+        devServerPort = val.substring(5);
+    }
+});
 
 const swConstants = new DefinePlugin({
     NAME: JSON.stringify(packageJson.name),
@@ -102,7 +110,7 @@ const config = {
         ...configDefaults,
         devServer: {
             inline: true,
-            port: 3333,
+            port: devServerPort,
             contentBase: PATHS[ENV]
         }
     },
