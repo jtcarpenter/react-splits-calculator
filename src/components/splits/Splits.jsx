@@ -18,7 +18,7 @@ const PRINT_THEAD_HEIGHT = 10;
 const PRINT_FONT_SIZE_SCALE = 1;
 const PRIMARY_DARK_WIDTH = .5;
 const PRINT_WRIST_SIZE = 150;
-const MAX_PRINT_ROW_HEIGHT = 10;
+const MAX_PRINT_ROW_HEIGHT = 6;
 const PRINT_TFOOT_HEIGHT =  A4_PAPER_LENGTH_MM -
                             PRINT_WRIST_SIZE -
                             PRINT_THEAD_HEIGHT -
